@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+main {
+  position: relative;
+  width: 1440px;
+  padding: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 0; /* Allows the container to shrink below its content height if needed */
+}
+
+nav {
+  position: relative;
+  width: 100vw;
+  height: 90px;
+
+  background-color: black;
+}
+
+nav main {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+nav #logo {
+  position: relative;
+  width: 200px;
+  height: 90px;
+  float: left;
+  color: white;
+
+  font-weight: bold;
+  top: 27px;
+  font-size: 28px;
+}
+
+nav .nav_item {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  float: left;
+  color: white;
+
+  font-weight: bold;
+  top: 32px;
+  font-size: 18px;
+}
+
+section,
+footer {
+  position: relative;
+  width: 100vw;
+  background-color: black;
+}
+
+#hero {
+  height: 650px;
+}
+
+#hero main {
+  height: 100%;
+  background-image: url('img/bg.png');
+  background-size: cover;
+}
+
+h1#main_title {
+  position: relative;
+  font-size: 96px;
+  top: 120px;
+}
+
+h2#main_subheading {
+  position: relative;
+  font-size: 24px;
+  top: calc(248px - 120px);
+  font-weight: regular;
+}
+
+button#main_hero_btn {
+  position: relative;
+  top: calc(321px - 128px);
+  font-size: 20px;
+  border-radius: 0px;
+  background-color: white;
+  border: 4px solid black;
+  padding: 19px 35px;
+  box-shadow: 8px 12px 0px black;
+}
+
+h3.section_header {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+}
+
+#twocards {
+  height: 560px;
+  background-color: white;
+}
+
+.card_container {
+  position: relative;
+  width: 100%;
+  margin-top: 48px;
+  display: inline-block
+}
+
+#twocards .card.two:nth-child(1) {
+  background-color: #ffDE33;
+}
+
+.card {
+  position: relative;
+  border: 4px solid #0D0D0D;
+  border-style: inset;
+  box-shadow: 8px 12px 0px black;
+  padding: 50px 32px;
+  background-color: white;
+  float: left;
+}
+
+#twocards .card.two {
+  width: 635px;
+  height: calc(266px - 50px - 50px);
+  margin-right: 25px;
+}
+
+#twocards .card.two:nth-child(2n) {
+  margin-right: 0;
+}
+
+#twocards .card_title {
+  font-family: 'space grotesk';
+  font-weight: bold;
+  font-size: 36px;
+}
+
+#twocards .card_text {
+  font-family: 'space grotesk';
+  font-weight: normal;
+  font-size: 20px;
+
+  margin-bottom: 36px;
+}
+
+button.card_btn,
+button#see_more {
+  position: relative;
+  padding: 15px 25px;
+
+  font-family: 'Space Grotesk';
+  font-weight: bold;
+  font-size: 18px;
+
+  border: 4px solid #0D0D0D;
+  border-style: inset;
+  box-shadow: 8px 12px 0px black;
+  background-color: white;
+  border-radius: 0px;
+}
+
+#fivecards {
+  background-color: #FFF2A6;
+}
+
+#fivecards .card.five {
+  width: calc(300px - 50px - 50px);
+  height: calc(400px - 32px - 32px);
+  margin-right: 20px;
+}
+
+#fivecards .card.five:nth-child(5n) {
+  margin-right: 0;
+}
+
+#fivecards .card_img {
+  width: 200px;
+  height: 182px;
+
+  border: 4px solid #0D0D0D;
+  border-style: inset;
+  box-shadow: 8px 12px 0px black;
+  background-color: white;
+  border-radius: 0px;
+}
+
+#fivecards .card_title {
+  font-family: 'Space grotesk';
+  font-weight: bold;
+  font-size: 26px;
+  margin-top: 30px;
+}
+
+
+footer {
+  height: 530px;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 20px;
+    width: calc(100% - 20px - 20px);
+  }
+
+  h1#main_title {
+    font-size: 64px;
+  }
+
+  h2#main_subheading {
+    width: 400px;
+  }
+
+  #twocards .card.two {
+    width: calc(100% - 100px);
+  }
+
+  #twocards {
+    height: 720px;
+  }
+}
