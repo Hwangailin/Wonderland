@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="assets/styles.css" />
+  <title>Week 8</title>
+</head>
+
+<body>
+  <nav>
+    <main>
+      <div id="logo">Hello</div>
+      <div class="nav_item">Home</div>
+      <div class="nav_item">About</div>
+      <div class="nav_item">Contact</div>
+    </main>
+  </nav>
+  <section id="hero">
+    <main>
+      <h1 id="main_title">Hello World</h1>
+      <h2 id="main_subheading">Lorem ipsum dolor sit amet consectetur adipiscing elit.</h2>
+      <button type="button" id="main_hero_btn">Call To Action</button>
+    </main>
+  </section>
+  <section id="twocards">
+    <main>
+      <h3 class="section_header">Two Cards Section</h3>
+      <div class="card_container">
+        <div class="card two">
+          <div class="card_title">Left Heading</div>
+          <div class="card_text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</div>
+          <button type="button" class="card_btn">Learn More</button>
+        </div>
+        <div class="card two">
+          <div class="card_title">Right Heading</div>
+          <div class="card_text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</div>
+          <button type="button" class="card_btn">Learn More</button>
+        </div>
+      </div>
+    </main>
+  </section>
+  <section id="fivecards">
+    <main>
+      <h3 class="section_header">Five Cards Section</h3>
+      <div class="card_container" id="putithere">
+        <!-- <div class="card five">
+          <div class="card_img"></div>
+          <div class="card_title">Card One</div>
+          <button type="button" class="card_btn">Buy</button>
+        </div> -->
+      </div>
+      <button type="button" id="see_more">See More</button>
+    </main>
+  </section>
+  <footer>
+    <main>
+      <div class="left_side">
+        <h4 class="footer_header">Company Name</h4>
+        <p>123 Dummy Street</p>
+        <p>Jakarta, Indonesia</p>
+      </div>
+      <div class="right_side">
+        <div class="footer_column">
+          <h4 class="footer_header">Footer List Header</h4>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+        </div>
+        <div class="footer_column">
+          <h4 class="footer_header">Footer List Header</h4>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+        </div>
+        <div class="footer_column">
+          <h4 class="footer_header">Footer List Header</h4>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+        </div>
+        <div class="footer_column">
+          <h4 class="footer_header">Footer List Header</h4>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+          <p>List Item</p>
+        </div>
+      </div>
+    </main>
+  </footer>
+</body>
+
+</html>
+<script>
+let data = [
+  {
+    "image": "assets/img/1.png",
+    "title": "John"
+  },
+  {
+    "image": "assets/img/2.png",
+    "title": "Jack"
+  },
+  {
+    "image": "assets/img/3.png",
+    "title": "Tom"
+  },
+  {
+    "image": "assets/img/4.png",
+    "title": "Sarah"
+  },
+  {
+    "image": "assets/img/5.png",
+    "title": "Mike"
+  },
+  {
+    "image": "assets/img/6.png",
+    "title": "Alex"
+  },
+  {
+    "image": "assets/img/7.png",
+    "title": "Emma"
+  },
+  {
+    "image": "assets/img/8.png",
+    "title": "Liam"
+  },
+  {
+    "image": "assets/img/9.png",
+    "title": "Olivia"
+  },
+  {
+    "image": "assets/img/10.png",
+    "title": "Noah"
+  },
+  {
+    "image": "assets/img/11.png",
+    "title": "Ava"
+  },
+  {
+    "image": "assets/img/12.png",
+    "title": "William"
+  },
+  {
+    "image": "assets/img/13.png",
+    "title": "Sophia"
+  },
+  {
+    "image": "assets/img/14.png",
+    "title": "James"
+  },
+  {
+    "image": "assets/img/15.png",
+    "title": "Isabella"
+  }
+];
+let thetarget = document.querySelector('#putithere');
+let seeMoreBtn = document.getElementById('see_more');
+const CARDS_PER_LOAD = 5;
+let currentIndex = 0;
+
+function createCardHTML(item, index) {
+  // Title logic: We'll make the title slightly dynamic based on the index if needed, but sticking to simple text for now.
+  let cardTitle = item.title;
+  if (index >= 3) {
+    // For cards past the initial set, we'll just say "Item X" to show we are appending dynamically
+    cardTitle = `Data Card #${index + 1}`;
+  }
+  return `<div class="card five">
+          <div class="card_img" style="background-image:url('${item.image}')"></div>
+          <div class="card_title">${cardTitle}</div>
+          <button type="button" class="card_btn">Buy</button>
+        </div>`;
+}
+
+function loadMoreCards() {
+  // 1. Determine how many cards to load (up to CARDS_PER_LOAD, but no more than remaining data)
+  const cardsToLoad = Math.min(CARDS_PER_LOAD, data.length - currentIndex);
+
+  if (cardsToLoad <= 0) {
+    // If no cards left, hide the button
+    seeMoreBtn.style.display = 'none';
+    console.log("All data loaded. See More button hidden.");
+    return;
+  }
+
+  // 2. Get the slice of data
+  const cardsData = data.slice(currentIndex, currentIndex + cardsToLoad);
+
+  // 3. Generate the HTML string
+  let newHTML = '';
+  cardsData.forEach((item, indexOffset) => {
+    // We pass the original item and the offset within the current batch
+    newHTML += createCardHTML(item, currentIndex + indexOffset);
+  });
+
+  // 4. Append to the container using insertAdjacentHTML
+  thetarget.insertAdjacentHTML('beforeend', newHTML);
+
+  // 5. Update the index marker
+  currentIndex += cardsToLoad;
+
+  // 6. Check if we are done, otherwise, the button stays visible
+  if (currentIndex >= data.length) {
+    seeMoreBtn.style.display = 'none';
+  } else {
+    // Button stays visible, maybe update text if you want, but keeping it 'See More' for now
+    seeMoreBtn.innerText = `See More (${data.length - currentIndex} left)`;
+  }
+}
+
+// Initial load: Load the first batch immediately when the script runs
+loadMoreCards();
+
+// Event listener: Attach the loadMoreCards function to the button click
+seeMoreBtn.addEventListener('click', loadMoreCards);
+</script>
